@@ -52,8 +52,8 @@ public class WebDriverFactory {
         File file;
         switch (desiredCapabilities.getBrowserName()) {
             case BrowserType.CHROME:
-                file = new File("C:/webdrivers/chromedriver.exe");
-                System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+                file = new File("/Users/testuser/Downloads/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "/Users/testuser/Downloads/chromedriver");
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setCapability("browserName", desiredCapabilities.getBrowserName());
                 return new ChromeDriver(chromeOptions);
