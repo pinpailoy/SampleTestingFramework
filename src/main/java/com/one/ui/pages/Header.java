@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.TimeoutException;
 
 import static com.one.locators.ClassName.PRODUCT_LABEL;
-import static com.one.locators.LinkText.LOGOUT;
+
 import static com.one.locators.XPathSelector.*;
 
 public class Header {

@@ -8,11 +8,14 @@ import com.one.ui.pages.ProductsContent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 import org.testng.Reporter;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 
 @ContextConfiguration(classes = {LoginForm.class, WebDriverConfig.class, Browser.class})
 public class MainPageTest extends AbstractTestNGSpringContextTests {
@@ -72,16 +75,13 @@ public class MainPageTest extends AbstractTestNGSpringContextTests {
     //TODO - add tests for sorting
     @Test
     public void verifyProducts_sortByPrice() {
-        productsContent.sortBy("Price (low to high)");
-
-
-        product = productsContent.getProductFromPosition(0);
-
-        //System.out.println(product.getName());
         SoftAssert softAssert = new SoftAssert();
-        /*softAssert.assertTrue(product.getName().matches(p.getName()), "The name is not the expected one");
-        softAssert.assertTrue(product.getDescription().contains(p.getDescription()), "The description is not the expected one");
-        softAssert.assertTrue(product.getPrice().contains(p.getPrice()), "The price is not the expected one");*/
+        productsContent.sortBy("Price (low to high)");
+        for (int i = 0; i <= productsContent.getAllProducts().size() - 1; i++) {
+            if (i < productsContent.getAllProducts().size() - 1) {
+                softAssert.assertTrue(Double.parseDouble(productsContent.getProductFromPosition(i).getPrice().replace("$", "")) <= Double.parseDouble(productsContent.getProductFromPosition(i + 1).getPrice().replace("$", "")), "The price is not sorting");
+            }
+        }
         softAssert.assertAll();
     }
 

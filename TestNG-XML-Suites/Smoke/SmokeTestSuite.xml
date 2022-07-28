@@ -2,10 +2,13 @@
 <suite name = "SmokeTestSuite">
     <parameter name="username" value="standard_user"/>
     <parameter name="password" value="secret_sauce"/>
+    <parameter name="firstname" value="testFirstName"/>
+    <parameter name="lastname" value="testLastName"/>
+    <parameter name="postalcode" value="13HTUB"/>
     <test name="functionality-test">
         <classes>
             <class name="com.one.MainPageTest" />
-            <!--class name="com.one.AddToCardTest" /-->
+            <class name="com.one.AddToCardTest" />
             <!--class name="com.one.NavigationTest" /-->
         </classes>
     </test>

@@ -22,7 +22,7 @@ class DelegatingWebDriver extends DelegatingSearchContext<WebDriver>
 
     @Override
     public void get(String url) {
-        delegate.get(url);
+        delegate.get("https://www.saucedemo.com/");
         delegate.switchTo().window(delegate.getWindowHandle());
     }
 

@@ -4,17 +4,14 @@ import com.one.framework.Browser;
 import com.one.ui.domains.Product;
 //import com.sun.org.slf4j.internal.Logger;
 //import com.sun.org.slf4j.internal.LoggerFactory;
-import io.netty.handler.codec.socks.SocksRequestType;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.one.locators.ClassName.SORT;
-import static com.one.locators.Id.INVENTORY_CONTAINER;
+import static com.one.locators.Id.*;
+import static com.one.locators.Id.PASSWORD;
+import static com.one.locators.LinkText.ADDTOCART;
 import static com.one.locators.XPathSelector.*;
 
 public class ProductsContent {
@@ -67,5 +64,28 @@ public class ProductsContent {
 
     public void sortBy(String criteria){
         browser.selectByVisibleText(SORT, criteria);
+    }
+
+    public List<Product> getAllProducts(){
+        return getProductsList();
+    }
+    public void clickShoppingCart(){
+        browser.click(CART);
+    }
+
+    public void clickCheckOut(){
+        browser.click(CHECKOUT);
+    }
+    public void insertDataForCheckout(String firstname,String lastname,String postalcode){
+        browser.await(FIRSTNAME).sendKeys(firstname);
+        browser.await(LASTNAME).sendKeys(lastname);
+        browser.await(POSTALCODE).sendKeys(postalcode);
+    }
+    public void clickContinue(){
+        browser.click(CONTINUE);
+    }
+
+    public void clickFinish(){
+        browser.click(FINISH);
     }
 }

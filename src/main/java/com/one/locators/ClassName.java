@@ -8,7 +8,7 @@ import static org.openqa.selenium.By.className;
 
 public enum ClassName implements Supplier<By> {
 
-    PRODUCT_LABEL("product_label"),
+    PRODUCT_LABEL("title"),
     LOGO("login_logo"),
     SORT("product_sort_container");
 

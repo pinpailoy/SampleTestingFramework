@@ -2,7 +2,7 @@ package com.one.ui.pages;
 
 import com.one.framework.Browser;
 
-import static com.one.locators.LinkText.LOGOUT;
+import static com.one.locators.Id.LOGOUT;
 import static com.one.locators.XPathSelector.CLOSE_MENU_BUTTON;
 
 public class Menu {

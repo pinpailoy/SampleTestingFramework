@@ -50,7 +50,7 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
     public void verifyLogin() {
         inventory = new Inventory(browser);
         assertTrue(inventory.isProductLabelPresent(), "Product label not displayed");
-        assertTrue(inventory.getProductLabel().matches("Products"));
+        assertTrue(inventory.getProductLabel().matches("PRODUCTS"));
     }
 
     @Test(groups = "logout")
